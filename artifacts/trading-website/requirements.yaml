@@ -1,0 +1,17 @@
+packages:
+  "framer-motion": "For cinematic scroll animations and page transitions"
+  "recharts": "For the trader dashboard profit/loss charts"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility to safely merge Tailwind CSS classes"
+
+images:
+  - path: "artifacts/trading-website/public/images/hero-bg.png"
+    description: "Deep space cinematic background with subtle glowing electric blue geometric grid lines and soft floating light orbs, extremely dark and premium, 8k resolution, suitable for a dark mode luxury fintech website background"
+    aspect_ratio: "16:9"
+  - path: "artifacts/trading-website/public/images/abstract-mesh.png"
+    description: "Abstract 3D gradient mesh in dark navy, indigo, and bright electric blue, smooth flowing curves, dark background, premium corporate feel"
+    aspect_ratio: "16:9"
+
+notes:
+  - No backend schema provided, using simulated hooks for auth, dashboard data, and forms.
+  - Hardcoded dark theme in index.css as requested.
