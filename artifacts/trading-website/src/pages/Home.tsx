@@ -320,32 +320,104 @@ export function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {[
               {
-                icon: Zap,
+                icon: (
+                  <svg viewBox="0 0 56 56" fill="none" className="w-14 h-14">
+                    <defs>
+                      <linearGradient id="g1a" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#F59E0B" />
+                        <stop offset="1" stopColor="#EF4444" />
+                      </linearGradient>
+                    </defs>
+                    {/* Outer ring */}
+                    <circle cx="28" cy="28" r="26" stroke="url(#g1a)" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.35" />
+                    {/* Inner circle */}
+                    <circle cx="28" cy="28" r="18" fill="#F59E0B" fillOpacity="0.08" stroke="#F59E0B" strokeWidth="1" strokeOpacity="0.3" />
+                    {/* Lightning bolt */}
+                    <path d="M30 14L20 30h9l-3 12 16-18h-9l3-10z" fill="url(#g1a)" />
+                    {/* Speed lines */}
+                    <line x1="8" y1="22" x2="14" y2="22" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.5" />
+                    <line x1="6" y1="28" x2="13" y2="28" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.35" />
+                    <line x1="8" y1="34" x2="14" y2="34" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.5" />
+                  </svg>
+                ),
                 title: "Same-Day Payouts",
                 desc: "Withdrawal requests processed and sent within 24 hours — no delays, no excuses.",
-                color: "text-yellow-400",
-                bg: "bg-yellow-500/10",
               },
               {
-                icon: Lock,
+                icon: (
+                  <svg viewBox="0 0 56 56" fill="none" className="w-14 h-14">
+                    <defs>
+                      <linearGradient id="g2a" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#10B981" />
+                        <stop offset="1" stopColor="#059669" />
+                      </linearGradient>
+                    </defs>
+                    {/* Outer ring dashed */}
+                    <circle cx="28" cy="28" r="26" stroke="url(#g2a)" strokeWidth="1.5" strokeDasharray="3 4" opacity="0.3" />
+                    {/* Inner fill */}
+                    <circle cx="28" cy="28" r="18" fill="#10B981" fillOpacity="0.07" stroke="#10B981" strokeWidth="1" strokeOpacity="0.25" />
+                    {/* Circular return arrow */}
+                    <path d="M28 16a12 12 0 0 1 9.8 5.7" stroke="url(#g2a)" strokeWidth="2.5" strokeLinecap="round" />
+                    <path d="M37 20l2-4.5 4.5 2" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M40 28a12 12 0 1 1-13.5-11.9" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.5" />
+                    {/* Coin/rupee symbol */}
+                    <text x="28" y="33" textAnchor="middle" fill="#10B981" fontSize="12" fontWeight="700" fontFamily="system-ui">₹</text>
+                  </svg>
+                ),
                 title: "Fee Refunded",
                 desc: "Your challenge fee is fully refunded with your very first payout. You risk nothing long-term.",
-                color: "text-green-400",
-                bg: "bg-green-500/10",
               },
               {
-                icon: Shield,
+                icon: (
+                  <svg viewBox="0 0 56 56" fill="none" className="w-14 h-14">
+                    <defs>
+                      <linearGradient id="g3a" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#3B82F6" />
+                        <stop offset="1" stopColor="#6366F1" />
+                      </linearGradient>
+                    </defs>
+                    {/* Outer ring */}
+                    <circle cx="28" cy="28" r="26" stroke="url(#g3a)" strokeWidth="1.5" strokeDasharray="5 3" opacity="0.3" />
+                    {/* Inner circle glow */}
+                    <circle cx="28" cy="28" r="18" fill="#3B82F6" fillOpacity="0.07" stroke="#3B82F6" strokeWidth="1" strokeOpacity="0.25" />
+                    {/* Eye outline */}
+                    <path d="M13 28c0 0 6-10 15-10s15 10 15 10-6 10-15 10-15-10-15-10z" stroke="url(#g3a)" strokeWidth="2" />
+                    {/* Pupil */}
+                    <circle cx="28" cy="28" r="4" fill="url(#g3a)" />
+                    {/* Inner pupil */}
+                    <circle cx="28" cy="28" r="2" fill="white" fillOpacity="0.9" />
+                    {/* Ray lines */}
+                    <line x1="28" y1="10" x2="28" y2="14" stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.5" />
+                    <line x1="28" y1="42" x2="28" y2="46" stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.5" />
+                    <line x1="10" y1="28" x2="14" y2="28" stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.5" />
+                    <line x1="42" y1="28" x2="46" y2="28" stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.5" />
+                  </svg>
+                ),
                 title: "No Hidden Rules",
                 desc: "Every rule is published upfront. No surprise breaches. What you see is exactly what you get.",
-                color: "text-blue-400",
-                bg: "bg-blue-500/10",
               },
               {
-                icon: Rocket,
+                icon: (
+                  <svg viewBox="0 0 56 56" fill="none" className="w-14 h-14">
+                    <defs>
+                      <linearGradient id="g4a" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#8B5CF6" />
+                        <stop offset="1" stopColor="#6366F1" />
+                      </linearGradient>
+                    </defs>
+                    {/* Outer ring */}
+                    <circle cx="28" cy="28" r="26" stroke="url(#g4a)" strokeWidth="1.5" strokeDasharray="3 4" opacity="0.3" />
+                    {/* Inner bg */}
+                    <circle cx="28" cy="28" r="18" fill="#8B5CF6" fillOpacity="0.07" stroke="#8B5CF6" strokeWidth="1" strokeOpacity="0.25" />
+                    {/* Infinity symbol */}
+                    <path d="M18 28 c0-5 5-8 10-5 l4 3 4-3 c5-3 10 0 10 5 s-5 8-10 5 l-4-3-4 3 c-5 3-10 0-10-5z" stroke="url(#g4a)" strokeWidth="2.5" fill="none" />
+                    {/* Arrow up */}
+                    <path d="M38 16l-4-5-4 5" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <line x1="34" y1="11" x2="34" y2="21" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" />
+                  </svg>
+                ),
                 title: "Infinite Scaling",
-                desc: "Consistent traders get rewarded. Scale from $10K all the way to $2,000,000 in capital.",
-                color: "text-purple-400",
-                bg: "bg-purple-500/10",
+                desc: "Consistent traders get rewarded. Scale from ₹2L all the way to ₹80L in capital.",
               },
             ].map((item, i) => (
               <motion.div
@@ -356,9 +428,7 @@ export function Home() {
                 transition={{ delay: i * 0.1 }}
                 className="glass-panel p-6 rounded-2xl flex flex-col"
               >
-                <div className={`w-12 h-12 rounded-xl ${item.bg} flex items-center justify-center mb-5`}>
-                  <item.icon className={`w-6 h-6 ${item.color}`} />
-                </div>
+                <div className="mb-5">{item.icon}</div>
                 <h4 className="text-lg font-bold text-white mb-2">{item.title}</h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
               </motion.div>
