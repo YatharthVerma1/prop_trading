@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { User, Lock, Mail, ChevronDown, Globe, Loader2 } from "lucide-react";
+import { User, Lock, Mail, ChevronDown, Globe, Loader2, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useRegister } from "@/hooks/use-auth";
 
 const COUNTRIES = [
   { code: "IN", name: "India", flag: "🇮🇳" },
@@ -49,15 +50,15 @@ const COUNTRIES = [
 ];
 
 export function Register() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [country, setCountry] = useState("IN");
+  const registerMutation = useRegister();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-    setTimeout(() => {
-      window.location.href = "/login";
-    }, 1500);
+    registerMutation.mutate({ name, email, password, country });
   };
 
   return (
@@ -70,8 +71,14 @@ export function Register() {
           <p className="text-muted-foreground">Start your evaluation journey today</p>
         </div>
 
+        {registerMutation.isError && (
+          <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-xl mb-6 flex items-center gap-3 text-sm">
+            <AlertCircle className="w-5 h-5 shrink-0" />
+            <p>{registerMutation.error?.message || "Registration failed. Please try again."}</p>
+          </div>
+        )}
+
         <form onSubmit={handleSubmit} className="space-y-5">
-          {/* Full Name */}
           <div className="space-y-1.5">
             <label className="text-sm font-medium text-white/70 ml-1">Full Name</label>
             <div className="relative">
@@ -79,13 +86,14 @@ export function Register() {
               <input
                 type="text"
                 required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="w-full bg-white/[0.04] border border-white/10 rounded-xl py-3 pl-11 pr-4 text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-blue-500/60 focus:ring-1 focus:ring-blue-500/40 focus:bg-white/[0.06] transition-all"
                 placeholder="Arjun Sharma"
               />
             </div>
           </div>
 
-          {/* Email */}
           <div className="space-y-1.5">
             <label className="text-sm font-medium text-white/70 ml-1">Email Address</label>
             <div className="relative">
@@ -93,13 +101,14 @@ export function Register() {
               <input
                 type="email"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-white/[0.04] border border-white/10 rounded-xl py-3 pl-11 pr-4 text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-blue-500/60 focus:ring-1 focus:ring-blue-500/40 focus:bg-white/[0.06] transition-all"
                 placeholder="trader@example.com"
               />
             </div>
           </div>
 
-          {/* Country — custom styled */}
           <div className="space-y-1.5">
             <label className="text-sm font-medium text-white/70 ml-1">Country</label>
             <div className="relative">
@@ -111,7 +120,6 @@ export function Register() {
                 className="w-full bg-white/[0.04] border border-white/10 rounded-xl py-3 pl-11 pr-10 text-white text-sm focus:outline-none focus:border-blue-500/60 focus:ring-1 focus:ring-blue-500/40 focus:bg-white/[0.06] transition-all appearance-none cursor-pointer"
                 style={{ colorScheme: "dark" }}
               >
-                {/* India pinned at top */}
                 <option value="IN" className="bg-[#111117] text-white">🇮🇳  India (Recommended)</option>
                 <option disabled className="bg-[#0A0A0F] text-white/30">──────────────</option>
                 {COUNTRIES.filter((c) => c.code !== "IN").map((c) => (
@@ -120,12 +128,10 @@ export function Register() {
                   </option>
                 ))}
               </select>
-              {/* Custom arrow */}
               <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40 pointer-events-none" />
             </div>
           </div>
 
-          {/* Password */}
           <div className="space-y-1.5">
             <label className="text-sm font-medium text-white/70 ml-1">Password</label>
             <div className="relative">
@@ -133,13 +139,15 @@ export function Register() {
               <input
                 type="password"
                 required
+                minLength={8}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full bg-white/[0.04] border border-white/10 rounded-xl py-3 pl-11 pr-4 text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-blue-500/60 focus:ring-1 focus:ring-blue-500/40 focus:bg-white/[0.06] transition-all"
                 placeholder="••••••••"
               />
             </div>
           </div>
 
-          {/* Terms */}
           <label className="flex items-start gap-3 pt-1 cursor-pointer group">
             <input
               type="checkbox"
@@ -155,9 +163,9 @@ export function Register() {
             type="submit"
             variant="gradient"
             className="w-full h-12 text-sm font-semibold mt-2"
-            disabled={isLoading}
+            disabled={registerMutation.isPending}
           >
-            {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : "Create Account"}
+            {registerMutation.isPending ? <Loader2 className="w-5 h-5 animate-spin" /> : "Create Account"}
           </Button>
         </form>
 

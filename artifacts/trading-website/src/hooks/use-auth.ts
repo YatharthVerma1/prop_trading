@@ -1,47 +1,80 @@
-import { useState, useEffect } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
-// Simulated user data
 export type User = {
-  id: string;
+  id: number;
   name: string;
   email: string;
-  status: "active" | "evaluating" | "funded";
-  balance: number;
+  country: string;
+  status: string;
 };
 
-const MOCK_USER: User = {
-  id: "USR-8829",
-  name: "Alex Trader",
-  email: "alex@example.com",
-  status: "evaluating",
-  balance: 100000,
-};
+const API_BASE = "/api";
 
-// Simulate Auth Hooks without real API
+async function apiFetch(path: string, options: RequestInit = {}) {
+  const token = localStorage.getItem("proptrader_token");
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    ...(options.headers as Record<string, string> || {}),
+  };
+  const res = await fetch(`${API_BASE}${path}`, { ...options, headers });
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({}));
+    throw new Error(body.error || "Something went wrong.");
+  }
+  return res.json();
+}
+
 export function useUser() {
-  return useQuery({
+  return useQuery<User | null>({
     queryKey: ["auth_user"],
     queryFn: async () => {
-      const stored = localStorage.getItem("proptrader_auth");
-      if (!stored) return null;
-      await new Promise(r => setTimeout(r, 500)); // Sim network
-      return MOCK_USER;
+      const token = localStorage.getItem("proptrader_token");
+      if (!token) return null;
+      try {
+        return await apiFetch("/auth/me");
+      } catch {
+        localStorage.removeItem("proptrader_token");
+        return null;
+      }
     },
+    staleTime: 5 * 60 * 1000,
+    retry: false,
   });
 }
 
 export function useLogin() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async (credentials: Record<string, string>) => {
-      await new Promise(r => setTimeout(r, 1000));
-      if (credentials.email === "fail@example.com") throw new Error("Invalid credentials");
-      localStorage.setItem("proptrader_auth", "true");
-      return MOCK_USER;
+    mutationFn: async (credentials: { email: string; password: string }) => {
+      const data = await apiFetch("/auth/login", {
+        method: "POST",
+        body: JSON.stringify(credentials),
+      });
+      localStorage.setItem("proptrader_token", data.token);
+      return data.user as User;
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["auth_user"] });
+    onSuccess: (user) => {
+      queryClient.setQueryData(["auth_user"], user);
+      window.location.href = "/dashboard";
+    },
+  });
+}
+
+export function useRegister() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (details: { name: string; email: string; password: string; country: string }) => {
+      const data = await apiFetch("/auth/register", {
+        method: "POST",
+        body: JSON.stringify(details),
+      });
+      localStorage.setItem("proptrader_token", data.token);
+      return data.user as User;
+    },
+    onSuccess: (user) => {
+      queryClient.setQueryData(["auth_user"], user);
+      window.location.href = "/dashboard";
     },
   });
 }
@@ -50,8 +83,7 @@ export function useLogout() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async () => {
-      await new Promise(r => setTimeout(r, 400));
-      localStorage.removeItem("proptrader_auth");
+      localStorage.removeItem("proptrader_token");
     },
     onSuccess: () => {
       queryClient.setQueryData(["auth_user"], null);

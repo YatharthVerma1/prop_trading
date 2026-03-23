@@ -322,22 +322,18 @@ export function Home() {
               {
                 icon: (
                   <svg viewBox="0 0 56 56" fill="none" className="w-14 h-14">
-                    <defs>
-                      <linearGradient id="g1a" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#F59E0B" />
-                        <stop offset="1" stopColor="#EF4444" />
-                      </linearGradient>
-                    </defs>
-                    {/* Outer ring */}
-                    <circle cx="28" cy="28" r="26" stroke="url(#g1a)" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.35" />
-                    {/* Inner circle */}
-                    <circle cx="28" cy="28" r="18" fill="#F59E0B" fillOpacity="0.08" stroke="#F59E0B" strokeWidth="1" strokeOpacity="0.3" />
-                    {/* Lightning bolt */}
-                    <path d="M30 14L20 30h9l-3 12 16-18h-9l3-10z" fill="url(#g1a)" />
-                    {/* Speed lines */}
-                    <line x1="8" y1="22" x2="14" y2="22" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.5" />
-                    <line x1="6" y1="28" x2="13" y2="28" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.35" />
-                    <line x1="8" y1="34" x2="14" y2="34" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.5" />
+                    {/* Frame */}
+                    <rect x="4" y="4" width="48" height="48" rx="13" fill="white" fillOpacity="0.04" stroke="white" strokeOpacity="0.1" strokeWidth="1" />
+                    {/* Clock circle */}
+                    <circle cx="25" cy="29" r="9.5" stroke="white" strokeOpacity="0.75" strokeWidth="1.4" />
+                    {/* Hour hand - pointing up */}
+                    <line x1="25" y1="29" x2="25" y2="22.5" stroke="white" strokeOpacity="0.95" strokeWidth="1.5" strokeLinecap="round" />
+                    {/* Minute hand - pointing right */}
+                    <line x1="25" y1="29" x2="30.5" y2="31.5" stroke="white" strokeOpacity="0.95" strokeWidth="1.5" strokeLinecap="round" />
+                    {/* Clock center */}
+                    <circle cx="25" cy="29" r="1.3" fill="white" fillOpacity="0.9" />
+                    {/* Lightning bolt - top right */}
+                    <path d="M39 15L35.5 22H39L35 30.5L43.5 21.5H40L43 15Z" fill="white" fillOpacity="0.85" />
                   </svg>
                 ),
                 title: "Same-Day Payouts",
@@ -346,22 +342,14 @@ export function Home() {
               {
                 icon: (
                   <svg viewBox="0 0 56 56" fill="none" className="w-14 h-14">
-                    <defs>
-                      <linearGradient id="g2a" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#10B981" />
-                        <stop offset="1" stopColor="#059669" />
-                      </linearGradient>
-                    </defs>
-                    {/* Outer ring dashed */}
-                    <circle cx="28" cy="28" r="26" stroke="url(#g2a)" strokeWidth="1.5" strokeDasharray="3 4" opacity="0.3" />
-                    {/* Inner fill */}
-                    <circle cx="28" cy="28" r="18" fill="#10B981" fillOpacity="0.07" stroke="#10B981" strokeWidth="1" strokeOpacity="0.25" />
-                    {/* Circular return arrow */}
-                    <path d="M28 16a12 12 0 0 1 9.8 5.7" stroke="url(#g2a)" strokeWidth="2.5" strokeLinecap="round" />
-                    <path d="M37 20l2-4.5 4.5 2" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M40 28a12 12 0 1 1-13.5-11.9" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeOpacity="0.5" />
-                    {/* Coin/rupee symbol */}
-                    <text x="28" y="33" textAnchor="middle" fill="#10B981" fontSize="12" fontWeight="700" fontFamily="system-ui">₹</text>
+                    {/* Frame */}
+                    <rect x="4" y="4" width="48" height="48" rx="13" fill="white" fillOpacity="0.04" stroke="white" strokeOpacity="0.1" strokeWidth="1" />
+                    {/* Circular return arc — most of circle */}
+                    <path d="M38.5 19.5A12 12 0 1 1 28 16" stroke="white" strokeOpacity="0.75" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+                    {/* Arrow head at arc end */}
+                    <polyline points="24.5,12.5 28,16.5 31.5,13" stroke="white" strokeOpacity="0.75" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                    {/* Checkmark inside */}
+                    <polyline points="22,29 26,33 34,23" stroke="white" strokeOpacity="0.9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                   </svg>
                 ),
                 title: "Fee Refunded",
@@ -370,27 +358,15 @@ export function Home() {
               {
                 icon: (
                   <svg viewBox="0 0 56 56" fill="none" className="w-14 h-14">
-                    <defs>
-                      <linearGradient id="g3a" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#3B82F6" />
-                        <stop offset="1" stopColor="#6366F1" />
-                      </linearGradient>
-                    </defs>
-                    {/* Outer ring */}
-                    <circle cx="28" cy="28" r="26" stroke="url(#g3a)" strokeWidth="1.5" strokeDasharray="5 3" opacity="0.3" />
-                    {/* Inner circle glow */}
-                    <circle cx="28" cy="28" r="18" fill="#3B82F6" fillOpacity="0.07" stroke="#3B82F6" strokeWidth="1" strokeOpacity="0.25" />
-                    {/* Eye outline */}
-                    <path d="M13 28c0 0 6-10 15-10s15 10 15 10-6 10-15 10-15-10-15-10z" stroke="url(#g3a)" strokeWidth="2" />
-                    {/* Pupil */}
-                    <circle cx="28" cy="28" r="4" fill="url(#g3a)" />
-                    {/* Inner pupil */}
-                    <circle cx="28" cy="28" r="2" fill="white" fillOpacity="0.9" />
-                    {/* Ray lines */}
-                    <line x1="28" y1="10" x2="28" y2="14" stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.5" />
-                    <line x1="28" y1="42" x2="28" y2="46" stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.5" />
-                    <line x1="10" y1="28" x2="14" y2="28" stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.5" />
-                    <line x1="42" y1="28" x2="46" y2="28" stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.5" />
+                    {/* Frame */}
+                    <rect x="4" y="4" width="48" height="48" rx="13" fill="white" fillOpacity="0.04" stroke="white" strokeOpacity="0.1" strokeWidth="1" />
+                    {/* Shield outline */}
+                    <path d="M28 13L17 17.5V27C17 33.5 21.8 39.5 28 41.5C34.2 39.5 39 33.5 39 27V17.5L28 13Z" stroke="white" strokeOpacity="0.75" strokeWidth="1.4" strokeLinejoin="round" fill="white" fillOpacity="0.03" />
+                    {/* Rule lines inside shield */}
+                    <line x1="22" y1="25" x2="34" y2="25" stroke="white" strokeOpacity="0.6" strokeWidth="1.2" strokeLinecap="round" />
+                    <line x1="22" y1="29" x2="34" y2="29" stroke="white" strokeOpacity="0.6" strokeWidth="1.2" strokeLinecap="round" />
+                    {/* Checkmark on bottom rule */}
+                    <polyline points="22,33 25.5,36.5 34,29.5" stroke="white" strokeOpacity="0.9" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                   </svg>
                 ),
                 title: "No Hidden Rules",
@@ -399,21 +375,21 @@ export function Home() {
               {
                 icon: (
                   <svg viewBox="0 0 56 56" fill="none" className="w-14 h-14">
-                    <defs>
-                      <linearGradient id="g4a" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#8B5CF6" />
-                        <stop offset="1" stopColor="#6366F1" />
-                      </linearGradient>
-                    </defs>
-                    {/* Outer ring */}
-                    <circle cx="28" cy="28" r="26" stroke="url(#g4a)" strokeWidth="1.5" strokeDasharray="3 4" opacity="0.3" />
-                    {/* Inner bg */}
-                    <circle cx="28" cy="28" r="18" fill="#8B5CF6" fillOpacity="0.07" stroke="#8B5CF6" strokeWidth="1" strokeOpacity="0.25" />
-                    {/* Infinity symbol */}
-                    <path d="M18 28 c0-5 5-8 10-5 l4 3 4-3 c5-3 10 0 10 5 s-5 8-10 5 l-4-3-4 3 c-5 3-10 0-10-5z" stroke="url(#g4a)" strokeWidth="2.5" fill="none" />
-                    {/* Arrow up */}
-                    <path d="M38 16l-4-5-4 5" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <line x1="34" y1="11" x2="34" y2="21" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" />
+                    {/* Frame */}
+                    <rect x="4" y="4" width="48" height="48" rx="13" fill="white" fillOpacity="0.04" stroke="white" strokeOpacity="0.1" strokeWidth="1" />
+                    {/* Bar 1 */}
+                    <rect x="12" y="34" width="7" height="8" rx="1.5" fill="white" fillOpacity="0.35" />
+                    {/* Bar 2 */}
+                    <rect x="22" y="27" width="7" height="15" rx="1.5" fill="white" fillOpacity="0.55" />
+                    {/* Bar 3 */}
+                    <rect x="32" y="19" width="7" height="23" rx="1.5" fill="white" fillOpacity="0.75" />
+                    {/* Baseline */}
+                    <line x1="11" y1="43" x2="44" y2="43" stroke="white" strokeOpacity="0.25" strokeWidth="1" strokeLinecap="round" />
+                    {/* Arrow upward trend */}
+                    <path d="M12 32 Q22 22 33 18" stroke="white" strokeOpacity="0.5" strokeWidth="1.2" strokeLinecap="round" fill="none" strokeDasharray="2.5 2.5" />
+                    {/* Arrow head */}
+                    <polyline points="30,14.5 34,18 38,14" stroke="white" strokeOpacity="0.9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                    <line x1="34" y1="11" x2="34" y2="18.5" stroke="white" strokeOpacity="0.9" strokeWidth="1.5" strokeLinecap="round" />
                   </svg>
                 ),
                 title: "Infinite Scaling",

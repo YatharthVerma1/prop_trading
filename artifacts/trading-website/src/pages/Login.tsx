@@ -28,7 +28,7 @@ export function Login() {
         {loginMutation.isError && (
           <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-xl mb-6 flex items-center gap-3 text-sm">
             <AlertCircle className="w-5 h-5 shrink-0" />
-            <p>Invalid email or password. Hint: Don't use "fail@example.com"</p>
+            <p>{loginMutation.error?.message || "Invalid email or password."}</p>
           </div>
         )}
 
