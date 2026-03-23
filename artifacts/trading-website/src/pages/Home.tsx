@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, CheckCircle2, Zap, Shield, Clock, BarChart3, ChevronRight, PlayCircle, Globe, Trophy } from "lucide-react";
+import { ArrowRight, CheckCircle2, Zap, Shield, Clock, BarChart3, ChevronRight, PlayCircle, Globe, Trophy, Star, Rocket, Lock, TrendingUp, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const staggerContainer = {
@@ -41,7 +41,7 @@ export function Home() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6">
                 <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                Now Funding Traders Worldwide
+                Now Open — Start Your Evaluation Today
               </div>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[1.1] mb-6">
                 Trade Our Capital. <br />
@@ -65,56 +65,61 @@ export function Home() {
                 </Link>
               </div>
 
-              <div className="mt-10 flex items-center gap-4 text-sm text-muted-foreground">
-                <div className="flex -space-x-2">
-                  {/* user faces placeholder using unsplash */}
-                  {/* professional smiling man */}
-                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop" alt="Trader" className="w-8 h-8 rounded-full border-2 border-background" />
-                  {/* professional smiling woman */}
-                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop" alt="Trader" className="w-8 h-8 rounded-full border-2 border-background" />
-                  {/* confident trader */}
-                  <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop" alt="Trader" className="w-8 h-8 rounded-full border-2 border-background" />
-                </div>
-                <p>Join <strong className="text-white">8,400+</strong> funded traders</p>
+              {/* Trust badges instead of fake customer count */}
+              <div className="mt-10 flex flex-wrap items-center gap-3">
+                {[
+                  { icon: Lock, label: "Secure Platform" },
+                  { icon: Zap, label: "Instant Payouts" },
+                  { icon: Globe, label: "150+ Countries" },
+                ].map(({ icon: Icon, label }) => (
+                  <div key={label} className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.07] text-sm text-white/70">
+                    <Icon className="w-3.5 h-3.5 text-blue-400" />
+                    {label}
+                  </div>
+                ))}
               </div>
             </motion.div>
 
-            {/* Right side floating cards */}
+            {/* Right side — platform feature cards */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="hidden lg:block relative h-[500px]"
             >
+              {/* Account size card */}
               <div className="absolute top-10 right-10 w-72 glass-panel rounded-2xl p-6 glow-blue animate-[bounce_6s_infinite_ease-in-out]">
                 <div className="flex justify-between items-start mb-4">
                   <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
                     <Trophy className="w-5 h-5 text-blue-400" />
                   </div>
-                  <span className="text-xs font-medium px-2 py-1 rounded bg-green-500/20 text-green-400">Paid Today</span>
+                  <span className="text-xs font-medium px-2 py-1 rounded bg-blue-500/20 text-blue-300">Up to $200K</span>
                 </div>
-                <p className="text-sm text-muted-foreground mb-1">Total Payouts</p>
-                <h3 className="text-3xl font-display font-bold text-white">$12,450,200</h3>
-                <div className="mt-4 h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
-                  <div className="h-full bg-blue-500 w-[75%]" />
+                <p className="text-sm text-muted-foreground mb-1">Choose Your Account Size</p>
+                <h3 className="text-2xl font-display font-bold text-white mb-3">$10K — $200K</h3>
+                <div className="grid grid-cols-3 gap-2">
+                  {["$10K", "$50K", "$100K", "$25K", "$200K", "$5K"].map(size => (
+                    <span key={size} className="text-center text-xs py-1 px-2 rounded bg-white/5 border border-white/5 text-white/70 font-medium">{size}</span>
+                  ))}
                 </div>
               </div>
 
+              {/* Profit split card */}
               <div className="absolute bottom-20 left-0 w-64 glass-panel rounded-2xl p-6 animate-[bounce_7s_infinite_ease-in-out_reverse]">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full overflow-hidden">
-                    {/* happy young trader */}
-                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&h=100&fit=crop" alt="Recent Payout" className="w-full h-full object-cover" />
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center">
+                    <TrendingUp className="w-5 h-5 text-green-400" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-white text-sm">David M.</h4>
-                    <p className="text-xs text-muted-foreground">Funded $100K</p>
+                    <h4 className="font-bold text-white text-sm">Profit Split</h4>
+                    <p className="text-xs text-muted-foreground">Industry-leading</p>
                   </div>
                 </div>
                 <div className="bg-white/5 rounded-lg p-3 border border-white/5">
-                  <p className="text-xs text-muted-foreground mb-1">Recent Withdrawal</p>
-                  <p className="font-display font-bold text-green-400 text-lg">+$8,450.00</p>
+                  <p className="text-xs text-muted-foreground mb-1">You Keep</p>
+                  <p className="font-display font-bold text-green-400 text-3xl">90%</p>
                 </div>
+                <p className="text-xs text-muted-foreground mt-3">Fee refunded on your first payout</p>
               </div>
             </motion.div>
           </div>
@@ -134,12 +139,12 @@ export function Home() {
               <p className="text-sm text-muted-foreground uppercase tracking-wider">Profit Split</p>
             </div>
             <div className="text-center px-4">
-              <h3 className="text-4xl font-display font-bold text-white mb-2">8.4k+</h3>
-              <p className="text-sm text-muted-foreground uppercase tracking-wider">Active Traders</p>
+              <h3 className="text-4xl font-display font-bold text-white mb-2">2-Step</h3>
+              <p className="text-sm text-muted-foreground uppercase tracking-wider">Evaluation</p>
             </div>
             <div className="text-center px-4">
               <h3 className="text-4xl font-display font-bold text-white mb-2">&lt;24h</h3>
-              <p className="text-sm text-muted-foreground uppercase tracking-wider">Avg Payout Time</p>
+              <p className="text-sm text-muted-foreground uppercase tracking-wider">Payout Time</p>
             </div>
           </div>
         </div>
@@ -192,7 +197,7 @@ export function Home() {
 
             {/* Step 3 */}
             <motion.div variants={fadeUp} className="glass-panel p-8 rounded-2xl border-blue-500/30 relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-transparent pointer-events-none rounded-2xl" />
               <div className="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center font-display font-bold text-xl text-white z-10 shadow-lg shadow-blue-500/50">3</div>
               <h4 className="text-xl font-bold text-white mb-3 mt-2">PropTrader Elite</h4>
               <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
@@ -269,11 +274,11 @@ export function Home() {
                 Access institutional-grade tools and conditions previously reserved for hedge funds and professional trading firms. Your edge, amplified.
               </p>
               
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {[
-                  { label: "Average Funded Trader Profit", value: "+18.4% monthly" },
-                  { label: "Avg time to pass challenge", value: "12 days" },
-                  { label: "Highest single payout", value: "$84,200" }
+                  { label: "Maximum Account Size", value: "Up to $200,000" },
+                  { label: "Profit Split", value: "Up to 90%" },
+                  { label: "Scaling Potential", value: "Up to $2,000,000" },
                 ].map((stat, i) => (
                   <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl bg-white/[0.02] border border-white/[0.05]">
                     <span className="text-muted-foreground">{stat.label}</span>
@@ -301,78 +306,75 @@ export function Home() {
         </div>
       </section>
 
-      {/* PAYOUT PROOF */}
+      {/* OUR COMMITMENT — replaces fake payout proof */}
       <section className="py-24 relative overflow-hidden bg-background">
-        <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">Real Payouts. Real Traders.</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            We've paid out over $12.4M to funded traders worldwide. Here's the proof.
-          </p>
-        </div>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-sm font-bold text-blue-500 tracking-widest uppercase mb-3">Our Promise</h2>
+            <h3 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">Built on Trust. <span className="text-gradient">Proven by Design.</span></h3>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              We designed every rule, every process, and every payout system with one goal: to be the prop firm we wished existed.
+            </p>
+          </div>
 
-        <div className="max-w-5xl mx-auto px-6 mb-16">
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {[
-              { name: "Alex T.", amount: "$24,500", date: "Mar 2026", account: "$100K", bg: "1a1a2e", color: "4ade80" },
-              { name: "Priya S.", amount: "$8,200", date: "Feb 2026", account: "$50K", bg: "1a1a2e", color: "4ade80" },
-              { name: "Marcus J.", amount: "$41,000", date: "Jan 2026", account: "$200K", bg: "1a1a2e", color: "4ade80" },
-              { name: "Yuki K.", amount: "$6,800", date: "Mar 2026", account: "$50K", bg: "1a1a2e", color: "4ade80" }
-            ].map((payout, i) => (
+              {
+                icon: Zap,
+                title: "Same-Day Payouts",
+                desc: "Withdrawal requests processed and sent within 24 hours — no delays, no excuses.",
+                color: "text-yellow-400",
+                bg: "bg-yellow-500/10",
+              },
+              {
+                icon: Lock,
+                title: "Fee Refunded",
+                desc: "Your challenge fee is fully refunded with your very first payout. You risk nothing long-term.",
+                color: "text-green-400",
+                bg: "bg-green-500/10",
+              },
+              {
+                icon: Shield,
+                title: "No Hidden Rules",
+                desc: "Every rule is published upfront. No surprise breaches. What you see is exactly what you get.",
+                color: "text-blue-400",
+                bg: "bg-blue-500/10",
+              },
+              {
+                icon: Rocket,
+                title: "Infinite Scaling",
+                desc: "Consistent traders get rewarded. Scale from $10K all the way to $2,000,000 in capital.",
+                color: "text-purple-400",
+                bg: "bg-purple-500/10",
+              },
+            ].map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass-panel p-6 rounded-2xl shimmer-card flex items-center justify-between"
+                className="glass-panel p-6 rounded-2xl flex flex-col"
               >
-                <div className="flex items-center gap-4">
-                  <img src={`https://ui-avatars.com/api/?name=${payout.name.replace(' ', '+')}&background=${payout.bg}&color=${payout.color}&size=80`} alt={payout.name} className="w-14 h-14 rounded-full" />
-                  <div>
-                    <h4 className="font-bold text-white text-lg">{payout.name}</h4>
-                    <p className="text-sm text-muted-foreground">{payout.date} • {payout.account} Account</p>
-                  </div>
+                <div className={`w-12 h-12 rounded-xl ${item.bg} flex items-center justify-center mb-5`}>
+                  <item.icon className={`w-6 h-6 ${item.color}`} />
                 </div>
-                <div className="text-right">
-                  <div className="inline-block px-2 py-1 bg-green-500/20 text-green-400 text-xs font-bold rounded mb-1">PAID</div>
-                  <p className="font-display font-bold text-2xl text-green-400">{payout.amount}</p>
-                </div>
+                <h4 className="text-lg font-bold text-white mb-2">{item.title}</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
-        </div>
 
-        {/* Marquee Ticker */}
-        <div className="w-full bg-black/40 border-y border-white/5 py-4 overflow-hidden relative flex">
-          <div className="flex whitespace-nowrap animate-[marquee_20s_linear_infinite]">
-            <span className="text-green-400 font-display font-medium text-lg mx-4">+$2,400</span>
-            <span className="text-white/20 mx-2">•</span>
-            <span className="text-green-400 font-display font-medium text-lg mx-4">+$15,800</span>
-            <span className="text-white/20 mx-2">•</span>
-            <span className="text-green-400 font-display font-medium text-lg mx-4">+$9,200</span>
-            <span className="text-white/20 mx-2">•</span>
-            <span className="text-green-400 font-display font-medium text-lg mx-4">+$3,600</span>
-            <span className="text-white/20 mx-2">•</span>
-            <span className="text-green-400 font-display font-medium text-lg mx-4">+$22,100</span>
-            <span className="text-white/20 mx-2">•</span>
-            <span className="text-green-400 font-display font-medium text-lg mx-4">+$8,750</span>
-            <span className="text-white/20 mx-2">•</span>
-            <span className="text-green-400 font-display font-medium text-lg mx-4">+$31,000</span>
-            <span className="text-white/20 mx-2">•</span>
-            {/* Duplicate for infinite effect */}
-            <span className="text-green-400 font-display font-medium text-lg mx-4">+$2,400</span>
-            <span className="text-white/20 mx-2">•</span>
-            <span className="text-green-400 font-display font-medium text-lg mx-4">+$15,800</span>
-            <span className="text-white/20 mx-2">•</span>
-            <span className="text-green-400 font-display font-medium text-lg mx-4">+$9,200</span>
-            <span className="text-white/20 mx-2">•</span>
-            <span className="text-green-400 font-display font-medium text-lg mx-4">+$3,600</span>
-            <span className="text-white/20 mx-2">•</span>
-            <span className="text-green-400 font-display font-medium text-lg mx-4">+$22,100</span>
-            <span className="text-white/20 mx-2">•</span>
-            <span className="text-green-400 font-display font-medium text-lg mx-4">+$8,750</span>
-            <span className="text-white/20 mx-2">•</span>
-            <span className="text-green-400 font-display font-medium text-lg mx-4">+$31,000</span>
+          {/* Instruments ticker — replaces fake payout ticker */}
+          <div className="w-full bg-black/40 border border-white/5 rounded-2xl py-5 px-6 overflow-hidden relative flex items-center gap-4">
+            <span className="text-xs font-bold text-blue-400 uppercase tracking-widest whitespace-nowrap shrink-0">Trade</span>
+            <div className="overflow-hidden flex-1">
+              <div className="flex whitespace-nowrap animate-[marquee_25s_linear_infinite]">
+                {["Forex", "Gold (XAU/USD)", "Crude Oil", "NASDAQ", "S&P 500", "EUR/USD", "BTC/USD", "GBP/JPY", "Silver", "DAX 40", "Forex", "Gold (XAU/USD)", "Crude Oil", "NASDAQ", "S&P 500", "EUR/USD", "BTC/USD", "GBP/JPY", "Silver", "DAX 40"].map((inst, i) => (
+                  <span key={i} className="text-white/60 font-medium text-sm mx-6">{inst} <span className="text-white/20 ml-6">·</span></span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -410,7 +412,7 @@ export function Home() {
                 className="relative z-10 flex flex-col items-center mb-8 md:mb-0"
               >
                 {step.scaleUp && <span className="absolute -top-8 text-blue-400 text-xs font-bold whitespace-nowrap bg-blue-500/10 px-2 py-1 rounded">Scale Up</span>}
-                <div className={`flex items-center justify-center font-display font-bold rounded-full border-2 border-[#050508] transition-all ${i >= 4 ? 'w-20 h-20 bg-blue-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.5)]' : 'w-16 h-16 bg-white/10 text-white/80'}`}>
+                <div className={`flex items-center justify-center font-display font-bold rounded-full border-2 border-[#050508] transition-all text-sm ${i >= 4 ? 'w-20 h-20 bg-blue-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.5)]' : 'w-16 h-16 bg-white/10 text-white/80'}`}>
                   {step.amount}
                 </div>
                 <span className="mt-4 text-sm text-muted-foreground font-medium">Level {step.level}</span>
@@ -421,19 +423,19 @@ export function Home() {
           <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             <div className="glass-panel p-6 rounded-2xl flex items-center justify-between">
               <span className="text-white font-medium">Scale up every 3 months</span>
-              <CheckCircle2 className="text-blue-500 w-5 h-5" />
+              <CheckCircle2 className="text-blue-500 w-5 h-5 shrink-0" />
             </div>
             <div className="glass-panel p-6 rounded-2xl flex items-center justify-between">
               <span className="text-white font-medium">10% profit triggers scale</span>
-              <CheckCircle2 className="text-blue-500 w-5 h-5" />
+              <CheckCircle2 className="text-blue-500 w-5 h-5 shrink-0" />
             </div>
             <div className="glass-panel p-6 rounded-2xl flex items-center justify-between">
               <span className="text-white font-medium">Up to 10x starting capital</span>
-              <CheckCircle2 className="text-blue-500 w-5 h-5" />
+              <CheckCircle2 className="text-blue-500 w-5 h-5 shrink-0" />
             </div>
             <div className="glass-panel p-6 rounded-2xl flex items-center justify-between">
               <span className="text-white font-medium">Keep 90% at every level</span>
-              <CheckCircle2 className="text-blue-500 w-5 h-5" />
+              <CheckCircle2 className="text-blue-500 w-5 h-5 shrink-0" />
             </div>
           </div>
         </div>
@@ -457,7 +459,7 @@ export function Home() {
               </div>
               <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">Connect With Us On Discord</h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Join 12,000+ traders in our active community. Get trade ideas, live signals, mentorship, and be part of the PropTrader Elite family.
+                Be part of our founding community. Connect with fellow traders, get market insights, and grow alongside us from day one.
               </p>
               
               <ul className="space-y-4 mb-10">
@@ -491,63 +493,76 @@ export function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
+      {/* WHY WE'RE DIFFERENT — replaces fake testimonials */}
       <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-white">What Our Traders Say</h2>
+            <h2 className="text-sm font-bold text-blue-500 tracking-widest uppercase mb-3">Our Advantage</h2>
+            <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">
+              Why <span className="text-gradient">PropTrader Elite</span>?
+            </h3>
+            <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+              We're not just another prop firm. We're setting a new standard for what traders deserve.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
             {[
-              { 
-                quote: "PropTrader Elite changed my life. I passed the $100K challenge in 9 days and received my first payout of $22,000 the very next day. The process is straightforward and the team is responsive.",
-                name: "James R.", 
-                location: "London UK", 
-                funded: "$100K",
-                avatar: "https://ui-avatars.com/api/?name=James+R&background=1a1a2e&color=60a5fa&size=80"
+              {
+                icon: Award,
+                title: "Trader-First Rules",
+                body: "Every rule is designed to be fair and transparent. No trick clauses, no ambiguous conditions. If you trade well, you get funded — period.",
               },
-              { 
-                quote: "I've tried 3 other prop firms before and none compare to PropTrader Elite. The spreads are tight, news trading is allowed, and the scaling plan is the best in the industry.",
-                name: "Amara N.", 
-                location: "Lagos Nigeria", 
-                funded: "$50K",
-                avatar: "https://ui-avatars.com/api/?name=Amara+N&background=1a1a2e&color=60a5fa&size=80"
+              {
+                icon: TrendingUp,
+                title: "Built-In Growth",
+                body: "Our scaling plan means your account grows with your performance. The better you trade, the more capital you unlock — automatically.",
               },
-              { 
-                quote: "Got funded in 2 weeks and have been trading for 6 months now. Just hit my 4th payout. The dashboard is clean and withdrawals hit my account within hours.",
-                name: "David K.", 
-                location: "Toronto Canada", 
-                funded: "$200K",
-                avatar: "https://ui-avatars.com/api/?name=David+K&background=1a1a2e&color=60a5fa&size=80"
-              }
-            ].map((testimonial, i) => (
+              {
+                icon: Users,
+                title: "A Community Behind You",
+                body: "You're not alone. Our Discord community, support team, and educational resources are here to help you succeed at every step.",
+              },
+            ].map((card, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300"
+                transition={{ delay: i * 0.12 }}
+                className="glass-panel p-8 rounded-2xl hover:-translate-y-1 transition-transform duration-300"
               >
-                <div className="flex gap-1 mb-6">
-                  {[1,2,3,4,5].map(star => (
-                    <svg key={star} className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
+                <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6">
+                  <card.icon className="w-6 h-6 text-blue-400" />
                 </div>
-                <p className="text-white/90 italic mb-8 leading-relaxed">"{testimonial.quote}"</p>
-                <div className="flex items-center gap-4 mt-auto">
-                  <img src={testimonial.avatar} alt={testimonial.name} className="w-12 h-12 rounded-full" />
-                  <div>
-                    <h4 className="font-bold text-white">{testimonial.name}</h4>
-                    <p className="text-xs text-muted-foreground">{testimonial.location} • Funded {testimonial.funded}</p>
-                  </div>
-                </div>
+                <h4 className="text-xl font-bold text-white mb-3">{card.title}</h4>
+                <p className="text-muted-foreground leading-relaxed">{card.body}</p>
               </motion.div>
             ))}
           </div>
+
+          {/* Early-access CTA strip */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl bg-gradient-to-r from-blue-600/20 via-indigo-600/10 to-transparent border border-blue-500/20 p-8 flex flex-col md:flex-row items-center justify-between gap-6"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center shrink-0">
+                <Rocket className="w-6 h-6 text-blue-400" />
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-white">Be Among Our First Funded Traders</h4>
+                <p className="text-muted-foreground">We're launching now. Early traders get priority support and first-mover advantage.</p>
+              </div>
+            </div>
+            <Link href="/pricing">
+              <Button variant="gradient" size="lg" className="shrink-0 gap-2">
+                Claim Your Spot <ArrowRight className="w-4 h-4" />
+              </Button>
+            </Link>
+          </motion.div>
         </div>
       </section>
 
@@ -563,7 +578,7 @@ export function Home() {
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
           <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-8">Ready to unlock your potential?</h2>
           <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Choose your account size and start your evaluation today. Join the elite group of funded traders.
+            Choose your account size and start your evaluation today. Become one of our first funded traders.
           </p>
           <Link href="/pricing">
             <Button size="lg" variant="gradient" className="h-16 px-12 text-lg glow-blue">
