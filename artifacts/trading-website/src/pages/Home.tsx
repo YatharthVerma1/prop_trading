@@ -622,15 +622,91 @@ export function Home() {
       </section>
 
       {/* CTA SECTION */}
-      <section className="py-32 relative overflow-hidden">
-        <img 
+      <section
+        className="py-40 relative overflow-hidden bg-[#03030a]"
+        style={{
+          backgroundImage: "radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
+      >
+        {/* Abstract mesh image */}
+        <img
           src={`${import.meta.env.BASE_URL}images/abstract-mesh.png`}
           alt="Abstract mesh"
-          className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-screen"
+          className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-screen"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background" />
-        
+
+        {/* Top & bottom fade */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background pointer-events-none" />
+
+        {/* Central radial glow — blue */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(37,99,235,0.18) 0%, transparent 70%)" }} />
+
+        {/* Left orb — purple */}
+        <div className="absolute -left-32 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(139,92,246,0.14) 0%, transparent 70%)" }} />
+
+        {/* Right orb — blue */}
+        <div className="absolute -right-32 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(59,130,246,0.14) 0%, transparent 70%)" }} />
+
+        {/* Top-center smaller orb — green accent */}
+        <div className="absolute left-1/2 -translate-x-1/2 -top-10 w-[340px] h-[260px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(34,197,94,0.1) 0%, transparent 70%)" }} />
+
+        {/* Horizontal grid lines */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.06]">
+          {[15, 35, 55, 75].map((pct) => (
+            <div key={pct} className="absolute w-full h-px bg-white" style={{ top: `${pct}%` }} />
+          ))}
+          {[10, 30, 50, 70, 90].map((pct) => (
+            <div key={pct} className="absolute h-full w-px bg-white" style={{ left: `${pct}%` }} />
+          ))}
+        </div>
+
+        {/* Floating glowing dots */}
+        {[
+          { top: "18%", left: "12%", size: 5, color: "rgba(59,130,246,0.7)" },
+          { top: "72%", left: "8%",  size: 3, color: "rgba(139,92,246,0.6)" },
+          { top: "25%", left: "88%", size: 4, color: "rgba(34,197,94,0.6)" },
+          { top: "65%", left: "85%", size: 5, color: "rgba(59,130,246,0.6)" },
+          { top: "48%", left: "22%", size: 3, color: "rgba(34,197,94,0.5)" },
+          { top: "38%", left: "78%", size: 3, color: "rgba(139,92,246,0.5)" },
+        ].map(({ top, left, size, color }, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full pointer-events-none animate-pulse"
+            style={{
+              top, left,
+              width: size, height: size,
+              background: color,
+              boxShadow: `0 0 ${size * 4}px ${size * 2}px ${color}`,
+              animationDelay: `${i * 0.7}s`,
+              animationDuration: `${2.5 + i * 0.4}s`,
+            }}
+          />
+        ))}
+
+        {/* Corner accent lines */}
+        <svg className="absolute top-0 left-0 w-48 h-48 opacity-10 pointer-events-none" viewBox="0 0 200 200" fill="none">
+          <path d="M0 80 L0 0 L80 0" stroke="white" strokeWidth="1" />
+          <path d="M0 40 L0 0 L40 0" stroke="white" strokeWidth="0.5" />
+        </svg>
+        <svg className="absolute top-0 right-0 w-48 h-48 opacity-10 pointer-events-none" viewBox="0 0 200 200" fill="none">
+          <path d="M200 80 L200 0 L120 0" stroke="white" strokeWidth="1" />
+          <path d="M200 40 L200 0 L160 0" stroke="white" strokeWidth="0.5" />
+        </svg>
+        <svg className="absolute bottom-0 left-0 w-48 h-48 opacity-10 pointer-events-none" viewBox="0 0 200 200" fill="none">
+          <path d="M0 120 L0 200 L80 200" stroke="white" strokeWidth="1" />
+          <path d="M0 160 L0 200 L40 200" stroke="white" strokeWidth="0.5" />
+        </svg>
+        <svg className="absolute bottom-0 right-0 w-48 h-48 opacity-10 pointer-events-none" viewBox="0 0 200 200" fill="none">
+          <path d="M200 120 L200 200 L120 200" stroke="white" strokeWidth="1" />
+          <path d="M200 160 L200 200 L160 200" stroke="white" strokeWidth="0.5" />
+        </svg>
+
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+            Evaluation Now Open
+          </div>
           <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-8">Ready to unlock your potential?</h2>
           <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
             Choose your account size and start your evaluation today. Become one of our first funded traders.
