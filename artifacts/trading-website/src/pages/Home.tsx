@@ -323,17 +323,17 @@ export function Home() {
                 icon: (
                   <svg viewBox="0 0 56 56" fill="none" className="w-14 h-14">
                     {/* Frame */}
-                    <rect x="4" y="4" width="48" height="48" rx="13" fill="white" fillOpacity="0.04" stroke="white" strokeOpacity="0.1" strokeWidth="1" />
+                    <rect x="4" y="4" width="48" height="48" rx="13" fill="#22c55e" fillOpacity="0.08" stroke="#22c55e" strokeOpacity="0.2" strokeWidth="1" />
                     {/* Clock circle */}
-                    <circle cx="25" cy="29" r="9.5" stroke="white" strokeOpacity="0.75" strokeWidth="1.4" />
+                    <circle cx="25" cy="29" r="9.5" stroke="#22c55e" strokeOpacity="0.85" strokeWidth="1.4" />
                     {/* Hour hand - pointing up */}
-                    <line x1="25" y1="29" x2="25" y2="22.5" stroke="white" strokeOpacity="0.95" strokeWidth="1.5" strokeLinecap="round" />
+                    <line x1="25" y1="29" x2="25" y2="22.5" stroke="#22c55e" strokeOpacity="1" strokeWidth="1.5" strokeLinecap="round" />
                     {/* Minute hand - pointing right */}
-                    <line x1="25" y1="29" x2="30.5" y2="31.5" stroke="white" strokeOpacity="0.95" strokeWidth="1.5" strokeLinecap="round" />
+                    <line x1="25" y1="29" x2="30.5" y2="31.5" stroke="#22c55e" strokeOpacity="1" strokeWidth="1.5" strokeLinecap="round" />
                     {/* Clock center */}
-                    <circle cx="25" cy="29" r="1.3" fill="white" fillOpacity="0.9" />
+                    <circle cx="25" cy="29" r="1.3" fill="#22c55e" fillOpacity="1" />
                     {/* Lightning bolt - top right */}
-                    <path d="M39 15L35.5 22H39L35 30.5L43.5 21.5H40L43 15Z" fill="white" fillOpacity="0.85" />
+                    <path d="M39 15L35.5 22H39L35 30.5L43.5 21.5H40L43 15Z" fill="#22c55e" fillOpacity="0.95" />
                   </svg>
                 ),
                 title: "Same-Day Payouts",
@@ -343,13 +343,13 @@ export function Home() {
                 icon: (
                   <svg viewBox="0 0 56 56" fill="none" className="w-14 h-14">
                     {/* Frame */}
-                    <rect x="4" y="4" width="48" height="48" rx="13" fill="white" fillOpacity="0.04" stroke="white" strokeOpacity="0.1" strokeWidth="1" />
+                    <rect x="4" y="4" width="48" height="48" rx="13" fill="#22c55e" fillOpacity="0.08" stroke="#22c55e" strokeOpacity="0.2" strokeWidth="1" />
                     {/* Circular return arc — most of circle */}
-                    <path d="M38.5 19.5A12 12 0 1 1 28 16" stroke="white" strokeOpacity="0.75" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+                    <path d="M38.5 19.5A12 12 0 1 1 28 16" stroke="#22c55e" strokeOpacity="0.85" strokeWidth="1.5" strokeLinecap="round" fill="none" />
                     {/* Arrow head at arc end */}
-                    <polyline points="24.5,12.5 28,16.5 31.5,13" stroke="white" strokeOpacity="0.75" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                    <polyline points="24.5,12.5 28,16.5 31.5,13" stroke="#22c55e" strokeOpacity="0.85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                     {/* Checkmark inside */}
-                    <polyline points="22,29 26,33 34,23" stroke="white" strokeOpacity="0.9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                    <polyline points="22,29 26,33 34,23" stroke="#22c55e" strokeOpacity="1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                   </svg>
                 ),
                 title: "Fee Refunded",
@@ -359,14 +359,14 @@ export function Home() {
                 icon: (
                   <svg viewBox="0 0 56 56" fill="none" className="w-14 h-14">
                     {/* Frame */}
-                    <rect x="4" y="4" width="48" height="48" rx="13" fill="white" fillOpacity="0.04" stroke="white" strokeOpacity="0.1" strokeWidth="1" />
+                    <rect x="4" y="4" width="48" height="48" rx="13" fill="#22c55e" fillOpacity="0.08" stroke="#22c55e" strokeOpacity="0.2" strokeWidth="1" />
                     {/* Shield outline */}
-                    <path d="M28 13L17 17.5V27C17 33.5 21.8 39.5 28 41.5C34.2 39.5 39 33.5 39 27V17.5L28 13Z" stroke="white" strokeOpacity="0.75" strokeWidth="1.4" strokeLinejoin="round" fill="white" fillOpacity="0.03" />
+                    <path d="M28 13L17 17.5V27C17 33.5 21.8 39.5 28 41.5C34.2 39.5 39 33.5 39 27V17.5L28 13Z" stroke="#22c55e" strokeOpacity="0.85" strokeWidth="1.4" strokeLinejoin="round" fill="#22c55e" fillOpacity="0.06" />
                     {/* Rule lines inside shield */}
-                    <line x1="22" y1="25" x2="34" y2="25" stroke="white" strokeOpacity="0.6" strokeWidth="1.2" strokeLinecap="round" />
-                    <line x1="22" y1="29" x2="34" y2="29" stroke="white" strokeOpacity="0.6" strokeWidth="1.2" strokeLinecap="round" />
+                    <line x1="22" y1="25" x2="34" y2="25" stroke="#22c55e" strokeOpacity="0.7" strokeWidth="1.2" strokeLinecap="round" />
+                    <line x1="22" y1="29" x2="34" y2="29" stroke="#22c55e" strokeOpacity="0.7" strokeWidth="1.2" strokeLinecap="round" />
                     {/* Checkmark on bottom rule */}
-                    <polyline points="22,33 25.5,36.5 34,29.5" stroke="white" strokeOpacity="0.9" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                    <polyline points="22,33 25.5,36.5 34,29.5" stroke="#22c55e" strokeOpacity="1" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                   </svg>
                 ),
                 title: "No Hidden Rules",
@@ -376,20 +376,20 @@ export function Home() {
                 icon: (
                   <svg viewBox="0 0 56 56" fill="none" className="w-14 h-14">
                     {/* Frame */}
-                    <rect x="4" y="4" width="48" height="48" rx="13" fill="white" fillOpacity="0.04" stroke="white" strokeOpacity="0.1" strokeWidth="1" />
+                    <rect x="4" y="4" width="48" height="48" rx="13" fill="#22c55e" fillOpacity="0.08" stroke="#22c55e" strokeOpacity="0.2" strokeWidth="1" />
                     {/* Bar 1 */}
-                    <rect x="12" y="34" width="7" height="8" rx="1.5" fill="white" fillOpacity="0.35" />
+                    <rect x="12" y="34" width="7" height="8" rx="1.5" fill="#22c55e" fillOpacity="0.4" />
                     {/* Bar 2 */}
-                    <rect x="22" y="27" width="7" height="15" rx="1.5" fill="white" fillOpacity="0.55" />
+                    <rect x="22" y="27" width="7" height="15" rx="1.5" fill="#22c55e" fillOpacity="0.6" />
                     {/* Bar 3 */}
-                    <rect x="32" y="19" width="7" height="23" rx="1.5" fill="white" fillOpacity="0.75" />
+                    <rect x="32" y="19" width="7" height="23" rx="1.5" fill="#22c55e" fillOpacity="0.85" />
                     {/* Baseline */}
-                    <line x1="11" y1="43" x2="44" y2="43" stroke="white" strokeOpacity="0.25" strokeWidth="1" strokeLinecap="round" />
+                    <line x1="11" y1="43" x2="44" y2="43" stroke="#22c55e" strokeOpacity="0.3" strokeWidth="1" strokeLinecap="round" />
                     {/* Arrow upward trend */}
-                    <path d="M12 32 Q22 22 33 18" stroke="white" strokeOpacity="0.5" strokeWidth="1.2" strokeLinecap="round" fill="none" strokeDasharray="2.5 2.5" />
+                    <path d="M12 32 Q22 22 33 18" stroke="#22c55e" strokeOpacity="0.6" strokeWidth="1.2" strokeLinecap="round" fill="none" strokeDasharray="2.5 2.5" />
                     {/* Arrow head */}
-                    <polyline points="30,14.5 34,18 38,14" stroke="white" strokeOpacity="0.9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                    <line x1="34" y1="11" x2="34" y2="18.5" stroke="white" strokeOpacity="0.9" strokeWidth="1.5" strokeLinecap="round" />
+                    <polyline points="30,14.5 34,18 38,14" stroke="#22c55e" strokeOpacity="1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                    <line x1="34" y1="11" x2="34" y2="18.5" stroke="#22c55e" strokeOpacity="1" strokeWidth="1.5" strokeLinecap="round" />
                   </svg>
                 ),
                 title: "Infinite Scaling",
