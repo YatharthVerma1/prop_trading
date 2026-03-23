@@ -80,6 +80,25 @@
     @apply font-sans antialiased bg-background text-foreground selection:bg-primary/30 selection:text-white;
     overflow-x: hidden;
   }
+  
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 1px,
+      rgba(255, 255, 255, 0.015) 1px,
+      rgba(255, 255, 255, 0.015) 2px
+    );
+  }
+
+  a, button {
+    cursor: pointer;
+  }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight;
@@ -91,12 +110,20 @@
   to { transform: translateX(-50%); }
 }
 
+@keyframes shimmer {
+  100% {
+    left: 200%;
+  }
+}
+
 .glass-panel {
-  @apply bg-card/60 backdrop-blur-xl border border-white/5 shadow-2xl shadow-black/50;
+  @apply bg-card/60 backdrop-blur-xl;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.03) inset, 0 25px 50px rgba(0,0,0,0.6);
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/60;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-300 to-cyan-300;
 }
 
 .text-gradient-blue {
@@ -109,4 +136,36 @@
 
 .glow-blue-hover:hover {
   box-shadow: 0 0 50px -5px rgba(30, 111, 255, 0.5);
+}
+
+.discord-btn {
+  background: linear-gradient(135deg, #5865F2, #7289DA);
+  transition: all 0.2s ease;
+}
+
+.discord-btn:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 20px rgba(88, 101, 242, 0.4);
+}
+
+.shimmer-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: shimmer 3s infinite;
 }
