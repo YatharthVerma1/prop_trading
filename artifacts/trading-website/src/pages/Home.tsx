@@ -191,7 +191,7 @@ export function Home() {
             </motion.div>
 
             {/* Step 3 */}
-            <motion.div variants={fadeUp} className="glass-panel p-8 rounded-2xl border-blue-500/30 relative group overflow-hidden">
+            <motion.div variants={fadeUp} className="glass-panel p-8 rounded-2xl border-blue-500/30 relative group">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-transparent pointer-events-none" />
               <div className="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center font-display font-bold text-xl text-white z-10 shadow-lg shadow-blue-500/50">3</div>
               <h4 className="text-xl font-bold text-white mb-3 mt-2">PropTrader Elite</h4>
