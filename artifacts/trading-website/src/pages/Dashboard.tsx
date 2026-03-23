@@ -167,7 +167,7 @@ export function Dashboard() {
                       </linearGradient>
                     </defs>
                     <XAxis dataKey="day" stroke="#ffffff40" fontSize={12} tickLine={false} axisLine={false} />
-                    <YAxis stroke="#ffffff40" fontSize={12} tickLine={false} axisLine={false} domain={['dataMin - 1000', 'dataMax + 1000']} tickFormatter={(value) => `$${value/1000}k`} />
+                    <YAxis stroke="#ffffff40" fontSize={12} tickLine={false} axisLine={false} domain={['dataMin - 1000', 'dataMax + 1000']} tickFormatter={(value) => `₹${(value/1000).toFixed(0)}k`} />
                     <Tooltip 
                       contentStyle={{ backgroundColor: '#0A0A0F', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px' }}
                       itemStyle={{ color: '#fff' }}
@@ -185,18 +185,18 @@ export function Dashboard() {
               <div className="space-y-6 flex-1">
                 <div>
                   <div className="flex justify-between text-sm mb-2">
-                    <span className="text-muted-foreground">Profit Target (8%)</span>
-                    <span className="text-white font-medium">{formatMoney(profit)} / {formatMoney(8000)}</span>
+                    <span className="text-muted-foreground">Profit Target (10%)</span>
+                    <span className="text-white font-medium">{formatMoney(profit)} / {formatMoney(stats.accountSize * 0.1)}</span>
                   </div>
                   <div className="w-full bg-white/5 rounded-full h-2.5">
-                    <div className="bg-green-500 h-2.5 rounded-full" style={{ width: `${Math.min(100, (profit/8000)*100)}%` }}></div>
+                    <div className="bg-green-500 h-2.5 rounded-full" style={{ width: `${Math.min(100, (profit/(stats.accountSize*0.1))*100)}%` }}></div>
                   </div>
                 </div>
                 
                 <div>
                   <div className="flex justify-between text-sm mb-2">
                     <span className="text-muted-foreground">Minimum Trading Days</span>
-                    <span className="text-white font-medium">12 / 5 Days</span>
+                    <span className="text-white font-medium">12 / 4 Days</span>
                   </div>
                   <div className="w-full bg-white/5 rounded-full h-2.5">
                     <div className="bg-green-500 h-2.5 rounded-full" style={{ width: '100%' }}></div>
@@ -229,12 +229,12 @@ export function Dashboard() {
               <table className="w-full text-sm text-left">
                 <thead className="text-xs text-muted-foreground uppercase bg-black/20">
                   <tr>
-                    <th className="px-6 py-4 font-medium">Symbol</th>
-                    <th className="px-6 py-4 font-medium">Type</th>
-                    <th className="px-6 py-4 font-medium">Lots</th>
-                    <th className="px-6 py-4 font-medium">Open Price</th>
-                    <th className="px-6 py-4 font-medium">Close Price</th>
-                    <th className="px-6 py-4 font-medium">Profit</th>
+                    <th className="px-6 py-4 font-medium">Instrument</th>
+                    <th className="px-6 py-4 font-medium">Direction</th>
+                    <th className="px-6 py-4 font-medium">Qty</th>
+                    <th className="px-6 py-4 font-medium">Entry Price</th>
+                    <th className="px-6 py-4 font-medium">Exit Price</th>
+                    <th className="px-6 py-4 font-medium">P&amp;L</th>
                     <th className="px-6 py-4 font-medium">Date</th>
                   </tr>
                 </thead>

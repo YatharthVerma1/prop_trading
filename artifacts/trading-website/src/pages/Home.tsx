@@ -41,14 +41,14 @@ export function Home() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6">
                 <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                Now Open — Start Your Evaluation Today
+                NSE Indices · Options Buying · Now Open
               </div>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[1.1] mb-6">
                 Trade Our Capital. <br />
                 <span className="text-gradient">Keep Your Profits.</span>
               </h1>
               <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl">
-                Prove your trading skills in our evaluation process. Get funded with up to <strong className="text-white">$200,000</strong> and keep up to <strong className="text-white">90%</strong> of the profits with zero risk to your personal capital.
+                Prove your trading skills on NSE Indices with simulated capital up to <strong className="text-white">₹10,00,000</strong>. Pass our evaluation and keep up to <strong className="text-white">90%</strong> of profits — zero risk to your personal capital.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
@@ -93,12 +93,12 @@ export function Home() {
                   <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
                     <Trophy className="w-5 h-5 text-blue-400" />
                   </div>
-                  <span className="text-xs font-medium px-2 py-1 rounded bg-blue-500/20 text-blue-300">Up to $200K</span>
+                  <span className="text-xs font-medium px-2 py-1 rounded bg-blue-500/20 text-blue-300">Up to ₹10L</span>
                 </div>
-                <p className="text-sm text-muted-foreground mb-1">Choose Your Account Size</p>
-                <h3 className="text-2xl font-display font-bold text-white mb-3">$10K — $200K</h3>
+                <p className="text-sm text-muted-foreground mb-1">Simulated Capital Options</p>
+                <h3 className="text-2xl font-display font-bold text-white mb-3">₹2L — ₹10L</h3>
                 <div className="grid grid-cols-3 gap-2">
-                  {["$10K", "$50K", "$100K", "$25K", "$200K", "$5K"].map(size => (
+                  {["₹2L", "₹5L", "₹10L", "2-Step", "1-Step", "NSE"].map(size => (
                     <span key={size} className="text-center text-xs py-1 px-2 rounded bg-white/5 border border-white/5 text-white/70 font-medium">{size}</span>
                   ))}
                 </div>
@@ -131,16 +131,16 @@ export function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/5">
             <div className="text-center px-4">
-              <h3 className="text-4xl font-display font-bold text-white mb-2">$200K</h3>
-              <p className="text-sm text-muted-foreground uppercase tracking-wider">Max Funding</p>
+              <h3 className="text-4xl font-display font-bold text-white mb-2">₹10L</h3>
+              <p className="text-sm text-muted-foreground uppercase tracking-wider">Max Capital</p>
             </div>
             <div className="text-center px-4">
               <h3 className="text-4xl font-display font-bold text-white mb-2">90%</h3>
               <p className="text-sm text-muted-foreground uppercase tracking-wider">Profit Split</p>
             </div>
             <div className="text-center px-4">
-              <h3 className="text-4xl font-display font-bold text-white mb-2">2-Step</h3>
-              <p className="text-sm text-muted-foreground uppercase tracking-wider">Evaluation</p>
+              <h3 className="text-4xl font-display font-bold text-white mb-2">NSE</h3>
+              <p className="text-sm text-muted-foreground uppercase tracking-wider">Options Buying</p>
             </div>
             <div className="text-center px-4">
               <h3 className="text-4xl font-display font-bold text-white mb-2">&lt;24h</h3>
@@ -206,7 +206,7 @@ export function Home() {
               <ul className="space-y-2 text-sm text-white/80">
                 <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-400" /> Up to 90% Split</li>
                 <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-400" /> Refundable Fee</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-400" /> Scale up to $2M</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-400" /> Scale up to ₹80L</li>
               </ul>
             </motion.div>
           </motion.div>
@@ -276,9 +276,9 @@ export function Home() {
               
               <div className="space-y-4">
                 {[
-                  { label: "Maximum Account Size", value: "Up to $200,000" },
-                  { label: "Profit Split", value: "Up to 90%" },
-                  { label: "Scaling Potential", value: "Up to $2,000,000" },
+                  { label: "Maximum Simulated Capital", value: "Up to ₹10,00,000" },
+                  { label: "Profit Split", value: "80% — 90%" },
+                  { label: "Market", value: "NSE Indices — Options Buying" },
                 ].map((stat, i) => (
                   <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl bg-white/[0.02] border border-white/[0.05]">
                     <span className="text-muted-foreground">{stat.label}</span>
@@ -388,7 +388,7 @@ export function Home() {
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">Scale Without Limits</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Pass our evaluation, grow your account, and unlock up to $2,000,000 in trading capital.
+            Pass our evaluation, grow your account, and unlock up to ₹80 Lakh in simulated trading capital.
           </p>
         </div>
 
@@ -396,12 +396,12 @@ export function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between mb-16 relative">
             <div className="absolute left-0 top-1/2 w-full h-1 bg-white/10 -translate-y-1/2 hidden md:block z-0" />
             {[
-              { level: 1, amount: "$10K" },
-              { level: 2, amount: "$25K" },
-              { level: 3, amount: "$50K" },
-              { level: 4, amount: "$100K" },
-              { level: 5, amount: "$200K", scaleUp: true },
-              { level: 6, amount: "$400K", scaleUp: true }
+              { level: 1, amount: "₹2L" },
+              { level: 2, amount: "₹5L" },
+              { level: 3, amount: "₹10L" },
+              { level: 4, amount: "₹20L" },
+              { level: 5, amount: "₹40L", scaleUp: true },
+              { level: 6, amount: "₹80L", scaleUp: true }
             ].map((step, i) => (
               <motion.div
                 key={i}
@@ -463,9 +463,18 @@ export function Home() {
               </p>
               
               <ul className="space-y-4 mb-10">
-                <li className="flex items-center gap-3 text-white font-medium"><span className="text-2xl">📊</span> Daily Market Analysis</li>
-                <li className="flex items-center gap-3 text-white font-medium"><span className="text-2xl">🎯</span> Live Trade Calls</li>
-                <li className="flex items-center gap-3 text-white font-medium"><span className="text-2xl">🤝</span> Peer Mentorship</li>
+                <li className="flex items-center gap-3 text-white font-medium">
+                  <div className="w-8 h-8 rounded-lg bg-[#5865F2]/20 flex items-center justify-center shrink-0"><BarChart3 className="w-4 h-4 text-[#5865F2]" /></div>
+                  Daily Market Analysis
+                </li>
+                <li className="flex items-center gap-3 text-white font-medium">
+                  <div className="w-8 h-8 rounded-lg bg-[#5865F2]/20 flex items-center justify-center shrink-0"><TrendingUp className="w-4 h-4 text-[#5865F2]" /></div>
+                  Live Trade Calls
+                </li>
+                <li className="flex items-center gap-3 text-white font-medium">
+                  <div className="w-8 h-8 rounded-lg bg-[#5865F2]/20 flex items-center justify-center shrink-0"><Users className="w-4 h-4 text-[#5865F2]" /></div>
+                  Peer Mentorship
+                </li>
               </ul>
               
               <Button asChild size="lg" className="discord-btn text-white font-bold h-14 px-8 text-lg rounded-xl">
